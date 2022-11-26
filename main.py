@@ -10,5 +10,5 @@ def home():
 def list():
     pass
 
-if name == 'main':
+if __name__ == 'main':
     app.run(debug=True)

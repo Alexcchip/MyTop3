@@ -26,6 +26,10 @@ def home():
         band2 = request.form.get('b2')
         band3 = request.form.get('b3')
         print(username, email, band1, band2, band3)
+
+        new_user = User(username=username, email=email, band1=band1, band2=band2, band3=band3)
+        db.session.add(new_user)
+        db.session.commit()
     return render_template('index.html')
 
 @app.route('/list')

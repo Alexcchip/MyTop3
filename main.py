@@ -25,5 +25,6 @@ def list():
     return render_template('list.html')
 
 if __name__ == 'main':
-    app.run(debug=True)
     db.create_all()
+    app.run(debug=True)
+    

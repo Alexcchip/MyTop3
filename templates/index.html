@@ -11,10 +11,27 @@
     <title>Document</title>
 </head>
 <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		{% for category, message in messages %}
+			{% if category=='error' %}
+				<div class="alert">
+					<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+					{{message}}
+				</div>
+			{% else %}
+			<div class="alert1"> <!--SUCCESS-->
+				<span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span> 
+				{{message}}
+			  </div>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	{% endwith %}
     <div>
         <nav class="nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="list.html">List</a>
+            <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
+            <a class="nav-link" href="{{url_for('list')}}">List</a>
         <nav>
     </div>
    
@@ -22,6 +39,7 @@
          <div>
             <input type="text" name="userr" id="userr" placeholder="Username" required><br>
             <input type="email" name="em" id="em" placeholder="Email" required><br>
+            <input type="number" name="pin" id="pin" placeholder="Pin *CANNOT RESET*" maxlength="4" minlength="4"><br>
             <input type="text" name="b1" id="b1" placeholder="Band 1" required><br>
             <input type="text" name="b2" id="b2" placeholder="Band 2" required><br>
             <input type="text" name="b3" id="b3" placeholder="Band 3" required>

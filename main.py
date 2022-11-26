@@ -17,12 +17,20 @@ class User(db.Model):
     band3 = db.Column(db.String(50), nullable=False)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST', 'GET'])
 def home():
+    if request.method == 'POST':
+        username = request.form.get('userr')
+        email = request.form.get('em')
+        band1 = request.form.get('b1')
+        band2 = request.form.get('b2')
+        band3 = request.form.get('b3')
+        print(username, email, band1, band2, band3)
     return render_template('index.html')
 
 @app.route('/list')
 def list():
+
     return render_template('list.html')
 
 if __name__ == '__main__':

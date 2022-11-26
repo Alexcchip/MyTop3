@@ -1,8 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = "12wwqewq3"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
@@ -16,15 +17,15 @@ class User(db.Model):
     band3 = db.Column(db.String(50), nullable=False)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('index.html', value="sd")
+    return render_template('index.html')
 
 @app.route('/list')
 def list():
     return render_template('list.html')
 
-if __name__ == 'main':
+if __name__ == '__main__':
     db.create_all()
     app.run(debug=True)
     

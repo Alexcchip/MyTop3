@@ -25,13 +25,10 @@
 		{% endfor %}
 	{% endif %}
 	{% endwith %}
-    <div>
-        <nav class="nav">
-            <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
-            <a class="nav-link" href="{{url_for('list')}}">List</a>
-        <nav>
-    </div>
-   
+    <ul>
+        <li><a class="active" href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('list')}}">List</a></li>
+    </ul>
         <form method="POST">
          <div>
             <input type="text" name="userr" id="userr" placeholder="Username" required><br>

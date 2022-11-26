@@ -1,9 +1,12 @@
-import flask
+from flask import Flask, render_template
 
 @app.route('/')
 def home():
-    pass
+    return render_template('index.html')
 
 @app.route('/list')
 def list():
-    pass
+    return render_template('list.html')
+
+if __name__ == 'main':
+    app.run(debug=True)

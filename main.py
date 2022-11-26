@@ -53,7 +53,8 @@ def home():
 
 @app.route('/list')
 def list():
-    return render_template('list.html')
+    users = User.query.all()
+    return render_template('list.html', users=users)
 
 if __name__ == '__main__':
     db.create_all()

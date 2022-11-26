@@ -24,7 +24,7 @@ def home():
 def list():
     return render_template('list.html')
 
-if __name__ == 'main':
+if __name__ == '__main__':
     db.create_all()
     app.run(debug=True)
     

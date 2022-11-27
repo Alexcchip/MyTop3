@@ -12,14 +12,17 @@
     <ul>
         <li><a class="active" href="{{url_for('home')}}">Home</a></li>
         <li><a href="{{url_for('list')}}">List</a></li>
+        <li style="float:right"><a href="{{url_for('update')}}">Update</a></li>
     </ul>
-    <div >
+
         {% for user in users%}
-            <h3>User: <I>{{user.username}}</I></h3>
+        <hr>
+            <h1>Username: <I>{{user.username}}</I></h1>
             <div>
-                <p>Band: {{user.band1}}</p>
-                <p>Band: {{user.band2}}</p>
-                <p>Band: {{user.band3}}</p>
+                <h2>Favorite Bands:</h2>
+                <p>Band 1: {{user.band1}}</p>
+                <p>Band 2: {{user.band2}}</p>
+                <p>Band 3: {{user.band3}}</p>
             </div>
         {%endfor%}
     </div>

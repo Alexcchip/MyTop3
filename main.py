@@ -56,6 +56,20 @@ def list():
     users = User.query.all()
     return render_template('list.html', users=users)
 
+# UPDATE THE DATABASE
+# Note for alex: Create a new page on the website, the user would need to upload the correct pin, usernmae and email and then it will be updated
+@app.route('/update', methods=['GET', 'POST'])
+def update():
+    # create a post method to get everything
+    if request.method == 'POST':
+        username = request.form.get('userr')
+        email = request.form.get('em')
+        pin = request.form.get('pin')
+        update_band1 = request.form.get('b1')
+        update_band2 = request.form.get('b2')
+        update_band3 = request.form.get('b3')
+        print(username, email, pin, update_band1, update_band2, update_band3)
+    return render_template('update.html')
 
 if __name__ == '__main__':
     db.create_all()

@@ -13,9 +13,14 @@
         <li><a class="active" href="{{url_for('home')}}">Home</a></li>
         <li><a href="{{url_for('list')}}">List</a></li>
     </ul>
-    <div id="test">
+    <div >
         {% for user in users%}
-            <p>{{user.username}}</p>
+            <h1>Username: <I>{{user.username}}</I></h1>
+            <div>
+                <p>Band: {{user.band1}}</p>
+                <p>Band: {{user.band2}}</p>
+                <p>Band: {{user.band3}}</p>
+            </div>
         {%endfor%}
     </div>
 </body>

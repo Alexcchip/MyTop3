@@ -105,18 +105,6 @@ def update():
 
     return render_template('update.html')
 
-            
-
-'''note for dip: I am having trouble with verifying that the user info exists (). It says that it does even if it doesn't
-. I am also having trouble with updating the user info'''
-# I guess the syntax is not correct with the if US and eM and pIn. Also we dont need to very pin and we shoudnt do db.session.commit() because we did not add anything beforehand. 
-        #if US and eM and pIN:
-         #   db.session.commit()
-        #    print(update_band1, update_band2, type(update_band3))
-         #   return redirect(url_for('list'))
-       # else:
-       #     flash("User info is incorrect", category='error')
-   # return render_template('update.html')""
 
 if __name__ == '__main__':
     db.create_all()

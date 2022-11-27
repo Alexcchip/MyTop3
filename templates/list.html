@@ -9,15 +9,21 @@
     <title>List</title>
 </head>
 <body>
-    <div>
-        <nav class="nav">
-            <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
-            <a class="nav-link" href="{{url_for('list')}}">List</a>
-        <nav>
-    </div>
-    <div id="test">
+    <ul>
+        <li><a class="active" href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('list')}}">List</a></li>
+        <li style="float:right"><a href="{{url_for('update')}}">Update</a></li>
+    </ul>
+
         {% for user in users%}
-            <p>{{user.username}}</p>
+        <hr>
+            <h1>Username: <I>{{user.username}}</I></h1>
+            <div>
+                <h2>Favorite Bands:</h2>
+                <p>Band 1: {{user.band1}}</p>
+                <p>Band 2: {{user.band2}}</p>
+                <p>Band 3: {{user.band3}}</p>
+            </div>
         {%endfor%}
     </div>
 </body>

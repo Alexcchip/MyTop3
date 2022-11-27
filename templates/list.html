@@ -17,7 +17,8 @@
 
         {% for user in users%}
         <hr>
-            <h1>Username: <I>{{user.username}}</I></h1>
+            <h1><a href="{{ url_for('userpage', Usernamee=user.username)}}">Username: <I>{{user.username}}</a></h1> 
+                <!--The code above re-directs the user to the userpage section and the variable usernamee is the username for each specific person, we used user.username to get the person username. The userpage is on main.py (def userpage(Usernamee), the Usernamee paramater is the user.username)-->
             <div>
                 <h2>Favorite Bands:</h2>
                 <p>Band 1: {{user.band1}}</p>

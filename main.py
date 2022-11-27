@@ -105,6 +105,15 @@ def update():
 
     return render_template('update.html')
 
+# create individual user pages
+@app.route('/user/<string:Usernamee>', methods = ['POST','GET'])
+def userpage(Usernamee):
+    usernamee = User.query.filter_by(username=Usernamee).first() # see if the username exists
+    all_users = User.query.filter().all() # filter through all users
+    if usernamee: # if username exists
+        return render_template('userpage.html', users=all_users, username=Usernamee) # pass into the html page, use jinja to grab
+    else: # not exists
+        return render_template('usernotfound.html')
 
 if __name__ == '__main__':
     db.create_all()

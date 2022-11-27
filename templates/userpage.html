@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{username}}</title>
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('list')}}">List</a></li>
+        <li style="float:right"><a href="{{url_for('update')}}">Update</a></li>
+    </ul>
+
+        <h1>{{username}} Profile</h1>
+    {% for data in all_users%}
+        {% if data.username == username%}
+            <h3>Band 1 {{data.band1}}</h3>
+            <h3>Band 2 {{data.band2}}</h3>
+            <h3>Band 3 {{data.band3}}</h3>
+            <h3>Contact: <br> {{data.email}}</h3>
+        {% endif %}
+    {% endfor %}
+    
+</body>
+</html>

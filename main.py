@@ -47,7 +47,9 @@ def home():
             new_user = User(pin=generate_password_hash(pin, method = "sha256"),username=username, email=email, band1=band1, band2=band2, band3=band3)
             db.session.add(new_user)
             db.session.commit()
-            return redirect(url_for('list'))
+        
+        
+
 
         
     return render_template('index.html')
@@ -114,6 +116,7 @@ def userpage(Usernamee):
         return render_template('userpage.html', users=all_users, username=Usernamee) # pass into the html page, use jinja to grab
     else: # not exists
         return render_template('usernotfound.html')
+
 
 if __name__ == '__main__':
     db.create_all()

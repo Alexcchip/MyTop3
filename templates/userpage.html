@@ -16,11 +16,12 @@
     </ul>
 
         <h1>{{username}} Profile</h1>
-    {% for data in all_users%}
-        {% if data.username == username%}
-            <h3>Band 1 {{data.band1}}</h3>
-            <h3>Band 2 {{data.band2}}</h3>
-            <h3>Band 3 {{data.band3}}</h3>
+    {% for data in users%}
+        {% if username == data.username %}
+        
+            <h3>Band 1: {{data.band1}}</h3>
+            <h3>Band 2: {{data.band2}}</h3>
+            <h3>Band 3: {{data.band3}}</h3>
             <h3>Contact: <br> {{data.email}}</h3>
         {% endif %}
     {% endfor %}

@@ -8,7 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List</title>
 </head>
-<body>
+<body> <!--NOTE FOR ALEX: added the flash messages system-->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		{% for category, message in messages %}
+			{% if category=='error' %}
+				<div class="alert">
+					<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+					{{message}}
+				</div>
+			{% else %}
+			<div class="alert1"> <!--SUCCESS-->
+				<span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span> 
+				{{message}}
+			  </div>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	{% endwith %}
     <ul>
         <li><a class="active" href="{{url_for('home')}}">Home</a></li>
         <li><a href="{{url_for('list')}}">List</a></li>
@@ -18,7 +35,6 @@
     <form method="POST">
         <div>
            <input type="text" name="userr" id="userr" placeholder="Your Username" required><br>
-           <input type="email" name="em" id="em" placeholder="Your Email" required><br>
            <input type="number" name="pin" id="pin" placeholder="Your Pin" maxlength="4" minlength="4"><br>
            <input type="text" name="b1" id="b1" placeholder="Update Band 1" ><br>
            <input type="text" name="b2" id="b2" placeholder="Update Band 2"><br>
